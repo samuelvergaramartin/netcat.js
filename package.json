@@ -1,0 +1,15 @@
+{
+  "name": "netcatjs",
+  "version": "0.0.1",
+  "description": "Libreria (no oficial) para interactuar con la API de Nerimity",
+  "author": "Samuel Vergara Martín",
+  "main": "index.ts",
+  "scripts": {
+    "build": "tsc"
+  },
+  "keywords": ["nerimity", "nerimity.js", "api", "websocket", "netcat"],
+  "type": "module",
+  "devDependencies": {
+    "typescript": "^7.0.2"
+  }
+}
