@@ -1,9 +1,9 @@
 {
-  "name": "netcatjs",
+  "name": "netcat.js",
   "version": "0.0.1",
   "description": "Libreria (no oficial) para interactuar con la API de Nerimity",
   "author": "Samuel Vergara Martín",
-  "main": "index.ts",
+  "main": "src/index.ts",
   "scripts": {
     "build": "tsc"
   },
