@@ -22,3 +22,19 @@ export interface RawUserPresence {
   custom?: string;
   activities?: any[]; // TODO
 }
+
+/**
+ * Interfaz que representa el payload que recibimos cuando iniciamos sesión
+ */
+export interface LoggedPayload {
+  user: RawUser;
+  servers: any[]; // TODO
+  serverMembers: any[]; // TODO
+  messageMentions: any[]; // TODO
+  channels: any[]; // TODO
+  serverRoles: any[]; // TODO
+  presences: RawUserPresence[];
+  friends: any[]; // TODO
+  inbox: any[]; // TODO
+  lastSeenServerChannelIds: Record<string, number>;
+}
