@@ -5,10 +5,14 @@ import {
     SocketClientEvents,
     SocketServerEvents
 } from '../EventNames.js';
+import { User } from "./User.js";
+import { LoggedPayload } from "../RawData.js";
+import { PresenceStatus, PresenceStatusValues } from "../../types/index.js";
 
 export class Client extends EventEmitter<ClientEventsMap> {
     ws: Socket
     token: string | undefined
+    user: User | undefined
 
     constructor(options? : {
         token: string
@@ -63,7 +67,39 @@ class EventHandlers {
         throw new Error(JSON.stringify(payload))
     }
 
-    onLogged(payload: any) {
+    onLogged(payload: LoggedPayload) {
+        this.client.user = new User(this.client, payload.user);
+
+        const presence = payload.presences.find((presence) => presence.userId == payload.user.id);
+        this.client.user.presence = presence;
+
+        let status : PresenceStatus;
+
+        switch(presence?.status) {
+            case PresenceStatusValues.invisible: {
+                status = "invisible";
+                break;
+            }
+            case PresenceStatusValues.available: {
+                status = "available";
+                break;
+            }
+            case PresenceStatusValues.idle: {
+                status = "idle";
+                break;
+            }
+            case PresenceStatusValues.dnd: {
+                status = "dnd";
+                break;
+            }
+            default: {
+                status = "online";
+                break;
+            }
+
+            this.client.user?.setStatus(status);
+        }
+
         this.client.emit("ready");
     }
 }
