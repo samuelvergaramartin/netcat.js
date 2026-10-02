@@ -96,10 +96,9 @@ class EventHandlers {
                 status = "online";
                 break;
             }
-
-            this.client.user?.setStatus(status);
         }
 
+        this.client.user?.setStatus(status);
         this.client.emit("ready");
     }
 }
