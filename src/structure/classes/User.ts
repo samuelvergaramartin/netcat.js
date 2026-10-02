@@ -27,6 +27,11 @@ export class User {
     this.banner = rawUser.banner;
     this.bot = rawUser.bot;
   }
+
+  setStatus(status: PresenceStatus) {
+    this.status = status;
+  }
+
   toString() {
     return `[@:${this.id}]`;
   }
