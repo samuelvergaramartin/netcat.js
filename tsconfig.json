@@ -7,11 +7,6 @@
     "rootDir": "./src",
     "moduleResolution": "nodenext",
     "experimentalDecorators": true,
-    "paths": {
-      "@/*": [
-        "./*"
-      ]
-    }
   },
   "include": ["src"],
   "exclude": ["node_modules"]

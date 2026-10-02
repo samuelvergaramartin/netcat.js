@@ -4,7 +4,7 @@ import {
     ClientEventsMap,
     SocketClientEvents,
     SocketServerEvents
-} from '@/src/structure/EventNames.js';
+} from '../EventNames.js';
 
 export class Client extends EventEmitter<ClientEventsMap> {
     ws: Socket

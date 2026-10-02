@@ -1,2 +1,2 @@
-export { ClientEvents } from '@/src/structure/EventNames.js';
-export { Client } from '@/src/structure/classes/Client.js';
+export { ClientEvents } from './structure/EventNames.js';
+export { Client } from './structure/classes/Client.js';
