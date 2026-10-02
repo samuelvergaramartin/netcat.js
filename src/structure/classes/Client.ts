@@ -47,6 +47,10 @@ class EventHandlers {
             SocketServerEvents.LOGIN_ERROR,
             this.onLoginError.bind(this),
         );
+        client.ws.on(
+            SocketServerEvents.LOGGED,
+            this.onLogged.bind(this),
+        );
     }
 
     onConnect() {
@@ -57,5 +61,9 @@ class EventHandlers {
 
     onLoginError(payload: { message: string }) {
         throw new Error(JSON.stringify(payload))
+    }
+
+    onLogged(payload: any) {
+        this.client.emit("ready");
     }
 }
