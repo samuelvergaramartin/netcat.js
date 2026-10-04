@@ -20,3 +20,9 @@ export enum PresenceStatusValues {
     "idle" = 3,
     "dnd" = 4
 }
+
+/**
+ * Representa los métodos HTTP que existen
+ */
+
+export type HTTPMethods = "GET" | "POST" | "PUT" | "PATCH" | "DELETE";
